@@ -63,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = getPost(params.slug, [
+  const post = getPost(params.slug.toString(), [
     'title',
     'date',
     'draft',

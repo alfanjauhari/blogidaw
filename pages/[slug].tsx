@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { getAllPages, getPage, getPageContent } from '../utils/page';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import hljs from 'highlight.js';
@@ -6,7 +6,6 @@ import config from '../config';
 import Head from '../comps/Head';
 
 const Page: NextPage<{ page }> = ({ page }) => {
-  const code = useRef();
   useEffect(() => {
     document.querySelectorAll('pre').forEach(block => hljs.highlightBlock(block));
   }, []);
@@ -43,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const page = getPage(params.slug, [
+  const page = getPage(params.slug.toString(), [
     'title',
     'date',
     'draft',
