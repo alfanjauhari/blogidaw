@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
 	return (
 		<main className="py-10 px-6 lg:px-24 flex flex-col md:flex-row md:justify-between">
 			<aside className="w-full md:w-1/3 lg:w-1/5 mb-6">
-        <img className="rounded-full w-16" src={config.authorProfile} />
+        <img className="rounded-full w-16" src={config.authorProfile} alt={config.author} />
         <h1 className="text-lg font-bold mt-4">
           {config.title}
         </h1>
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
             </a>
           ))}
         </div>
-        <p className="text-gray-500 text-sm mt-4">
+        <p className="text-gray-600 text-sm mt-4">
           Copyright {config.title} - {new Date().getFullYear()}
         </p>
       </aside>
