@@ -1,5 +1,5 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { ComponentClass } from 'react';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import config from '../config';
 
 class MyDocument extends Document<ComponentClass> {
@@ -39,14 +39,14 @@ class MyDocument extends Document<ComponentClass> {
 		      <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
 		      <link rel="manifest" href="/manifest.json" />
 		      <link href="/manifest.json" rel="manifest" />
-					<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="preload" />
+					<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="preload" as="font" />
 					<script async src={`https://www.googletagmanager.com/gtag/js?id=${config.googleAnalytic}`}></script>
 	        <script dangerouslySetInnerHTML={{
 	          __html: `
 	            window.dataLayer = window.dataLayer || [];
 	            function gtag(){dataLayer.push(arguments);}
 	            gtag('js', new Date());
-	            gtag('config', ${config.googleAnalytic});
+	            gtag('config', '${config.googleAnalytic}');
 	          `
 	        }} />
 				</Head>

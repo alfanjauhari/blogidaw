@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
         </div>
         <div className="flex flex-wrap -mx-1 mt-2">
           {config.socials.map(social => (
-            <a href={social.url} className="mx-1 mt-2 p-2 rounded border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white duration-300" target="_blank" key={social.type}>
+            <a href={social.url} className="mx-1 mt-2 p-2 rounded border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white duration-300" key={social.type}>
               <Icon type={social.type} />
             </a>
           ))}
