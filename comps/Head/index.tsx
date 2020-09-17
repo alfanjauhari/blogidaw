@@ -4,9 +4,9 @@ import config from '../../config';
 
 interface InitialProps {
 	title: string;
-	description: string;
+	description?: string;
 	keywords?: Array<string>;
-	canonical: string;
+	canonical?: string;
 	image?: string;
 	children?: ReactNode;
 }
