@@ -3,7 +3,7 @@ title: "My First Post"
 draft: false
 date: "2020-09-17T12:43:32.150Z"
 description: "Hello world its my first post"
-image: "your-thumbnail.jpg"
+image: "your-thumbnail.png"
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

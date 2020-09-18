@@ -3,7 +3,7 @@ title: "How to Optimize SEO on Next JS"
 draft: false
 date: "2020-09-18T02:54:41.291Z"
 description: "Hello world, its how to article!"
-image: "your-thumbnail.jpg"
+image: "your-thumbnail.png"
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

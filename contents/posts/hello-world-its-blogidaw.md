@@ -3,7 +3,7 @@ title: "Hello World, Its Blogidaw"
 draft: false
 date: "2020-09-18T02:57:12.263Z"
 description: "Hello world, its Blogidaw!"
-image: "your-thumbnail.jpg"
+image: "your-thumbnail.png"
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
