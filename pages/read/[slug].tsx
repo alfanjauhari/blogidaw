@@ -9,16 +9,7 @@ import Prism from 'prismjs';
 import "prismjs/components/prism-jsx.min";
 import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 
-interface IGetPost {
-  title: string;
-  slug: string;
-  date: string;
-  draft: boolean;
-  content?: string;
-}
-
 const ReadArticle: NextPage<{ post }> = ({ post }) => {
-  const code = useRef();
   useEffect(() => {
     Prism.highlightAll();
   }, []);

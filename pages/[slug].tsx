@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { getAllPages, getPage, getPageContent } from '../utils/page';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
 import config from '../config';
 import Head from '../comps/Head';
 import Prism from 'prismjs';
@@ -9,13 +8,9 @@ import "prismjs/components/prism-jsx.min";
 import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 
 const Page: NextPage<{ page }> = ({ page }) => {
-  const router = useRouter();
-
   useEffect(() => {
     Prism.highlightAll();
   }, [page]);
-
-  console.log(page.content);
 
   return (
     <>
@@ -58,7 +53,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'content'
   ]);
 
-  const content = getPageContent(page.content);
+  const content: string = getPageContent(page.content);
 
   return {
     props: {
