@@ -16,7 +16,7 @@ const ReadArticle: NextPage<{ post }> = ({ post }) => {
 
   return (
     <>
-      <Head title={`${post.title} — ${config.title}`} description={post.description} canonical={config.url + post.slug} image={post.image} />
+      <Head title={`${post.title} — ${config.title}`} description={post.description} canonical={config.url + post.slug} image={post.image} type="article" />
       <section>
         <h1 className="text-center text-2xl font-bold">{post.title}</h1>
         <p className="mt-4 font-bold text-indigo-800 text-lg text-center">

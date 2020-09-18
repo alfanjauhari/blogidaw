@@ -8,10 +8,11 @@ interface InitialProps {
 	keywords?: Array<string>;
 	canonical?: string;
 	image?: string;
+  type: string;
 	children?: ReactNode;
 }
 
-const Head = ({ title, description, keywords, canonical, image, children }: InitialProps) => {
+const Head = ({ title, description, keywords, canonical, image, type, children }: InitialProps) => {
 	return (
 		<NextHead>
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -23,14 +24,14 @@ const Head = ({ title, description, keywords, canonical, image, children }: Init
       <meta name="twitter:url" content={canonical ? canonical : config.url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description ? description : config.description} />
-      <meta name="twitter:image" content={image ? `/thumbnails/${image}` : `/thumbnails/${config.thumbnail}`} />
+      <meta name="twitter:image" content={image ? `${config.url}thumbnails/${image}` : `${config.url}thumbnails/${config.thumbnail}`} />
       <meta name="twitter:creator" content={config.author} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type ? type : 'website'} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description ? description : config.description} />
       <meta property="og:site_name" content={config.title} />
       <meta property="og:url" content={canonical ? canonical : config.url} />
-      <meta property="og:image" content={image ? `/thumbnails/${image}` : `/thumbnails/${config.thumbnail}`} />
+      <meta property="og:image" content={image ? `${config.url}thumbnails/${image}` : `${config.url}thumbnails/${config.thumbnail}`} />
       {children}
 		</NextHead>
 	)
