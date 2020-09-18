@@ -22,12 +22,12 @@ interface IGetPost {
 }
 
 let allPosts: Array<IGetPost> = [];
-const postsPerPage = 1;
+const postsPerPage = 5;
 
 const Home: NextPage<InitialProps> = ({ posts }) => {
   const router = useRouter();
   const [getPosts, setPosts] = useState([]);
-  const [nextPosts, setNextPosts] = useState(1);
+  const [nextPosts, setNextPosts] = useState(5);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const slicePosts = (start, end): void => {

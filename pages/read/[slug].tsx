@@ -5,6 +5,7 @@ import hljs from 'highlight.js';
 import moment from 'moment';
 import { DiscussionEmbed } from 'disqus-react';
 import config from '../../config';
+import Head from '../../comps/Head';
 
 interface IGetPost {
   title: string;
@@ -21,26 +22,29 @@ const ReadArticle: NextPage<{ post }> = ({ post }) => {
   }, []);
 
   return (
-    <section>
-      <h1 className="text-center text-2xl font-bold">{post.title}</h1>
-      <p className="mt-4 font-bold text-indigo-800 text-lg text-center">
-        {moment(post.date).fromNow()}
-      </p>
-      <hr className="border border-gray-300 my-6" />
-      <div className="mt-4 post-content" dangerouslySetInnerHTML={{
-        __html: post.content
-      }}></div>
-      <div className="mt-6">
-        <DiscussionEmbed
-          shortname={config.disqusShortname}
-          config={{
-            url: post.slug,
-            identifier: post.slug,
-            title: post.title,
-          }}
-        />
-      </div>
-    </section>
+    <>
+      <Head title={`${post.title} — ${config.title}`} description={post.description} canonical={config.url + post.slug} image={post.image} />
+      <section>
+        <h1 className="text-center text-2xl font-bold">{post.title}</h1>
+        <p className="mt-4 font-bold text-indigo-800 text-lg text-center">
+          {moment(post.date).fromNow()}
+        </p>
+        <hr className="border border-gray-300 my-6" />
+        <div className="mt-4 post-content" dangerouslySetInnerHTML={{
+          __html: post.content
+        }}></div>
+        <div className="mt-6">
+          <DiscussionEmbed
+            shortname={config.disqusShortname}
+            config={{
+              url: post.slug,
+              identifier: post.slug,
+              title: post.title,
+            }}
+          />
+        </div>
+      </section>
+    </>
   )
 }
 
@@ -67,6 +71,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'title',
     'date',
     'draft',
+    'description',
+    'image',
     'content'
   ]);
 
