@@ -3,7 +3,7 @@ const config = {
 	subtitle: 'Catatan Ngoding Alfan Jauhari',
 	author: 'Alfan Jauhari',
 	thumbnail: 'icon-hd.png',
-	url: 'https://alfan.my.id/',
+	url: 'https://blogidaw.vercel.app/',
 	authorProfile: 'profile.jpg',
 	description: 'Full-stuck Developer yang sangat suka dengan Javascript, beserta anak, cucu, dan cicit-nya',
 	themeColor: '#ffffff',
