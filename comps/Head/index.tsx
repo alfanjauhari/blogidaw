@@ -8,7 +8,7 @@ interface InitialProps {
 	keywords?: Array<string>;
 	canonical?: string;
 	image?: string;
-  type: string;
+  type?: string;
 	children?: ReactNode;
 }
 
