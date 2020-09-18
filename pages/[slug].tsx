@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
 import { getAllPages, getPage, getPageContent } from '../utils/page';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
-import hljs from 'highlight.js';
+import { useRouter } from 'next/router';
 import config from '../config';
 import Head from '../comps/Head';
+import Prism from 'prismjs';
+import "prismjs/components/prism-jsx.min";
+import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 
 const Page: NextPage<{ page }> = ({ page }) => {
+  const router = useRouter();
+
   useEffect(() => {
-    document.querySelectorAll('pre').forEach(block => hljs.highlightBlock(block));
-  }, []);
+    Prism.highlightAll();
+  }, [page]);
+
+  console.log(page.content);
+
   return (
     <>
       <Head title={`${page.title} — ${config.title}`} description={page.description} canonical={config.url + page.slug} />
@@ -50,7 +58,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'content'
   ]);
 
-  const content = getPageContent(page.content)
+  const content = getPageContent(page.content);
 
   return {
     props: {

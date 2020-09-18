@@ -108,10 +108,6 @@ body {
   @apply mb-6;
 }
 
-.post-content pre, pre code {
-	@apply font-mono mb-6 text-sm;
-}
-
 .post-content:last-child {
 	@apply mb-0;
 }

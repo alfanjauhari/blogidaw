@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import '../assets/dracula.css';
+import '../assets/hopscotch.css';
 import '../assets/tailwind.css';
 import Layout from '../comps/Layout';
 

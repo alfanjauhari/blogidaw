@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { getAllPosts, getPost, getPostContent } from '../../utils/blog';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
-import hljs from 'highlight.js';
 import moment from 'moment';
 import { DiscussionEmbed } from 'disqus-react';
 import config from '../../config';
 import Head from '../../comps/Head';
+import Prism from 'prismjs';
+import "prismjs/components/prism-jsx.min";
+import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 
 interface IGetPost {
   title: string;
@@ -18,7 +20,7 @@ interface IGetPost {
 const ReadArticle: NextPage<{ post }> = ({ post }) => {
   const code = useRef();
   useEffect(() => {
-    document.querySelectorAll('pre').forEach(block => hljs.highlightBlock(block));
+    Prism.highlightAll();
   }, []);
 
   return (
@@ -76,7 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'content'
   ]);
 
-  const content = getPostContent(post.content)
+  const content = getPostContent(post.content);
 
   return {
     props: {
