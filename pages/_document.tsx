@@ -39,7 +39,7 @@ class MyDocument extends Document<ComponentClass> {
 		      <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
 		      <link rel="manifest" href="/manifest.json" />
 		      <link href="/manifest.json" rel="manifest" />
-					<link ref={this.fontRef} href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+					<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 					<script async src={`https://www.googletagmanager.com/gtag/js?id=${config.googleAnalytic}`}></script>
 	        <script dangerouslySetInnerHTML={{
 	          __html: `
