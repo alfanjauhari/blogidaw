@@ -4,7 +4,7 @@ const config = {
 	author: 'Alfan Jauhari',
 	thumbnail: 'icon-hd.png',
 	url: 'https://blogidaw.vercel.app/',
-	authorProfile: 'profile.jpg',
+	authorProfile: '/profile.jpg',
 	description: 'Full-stuck Developer yang sangat suka dengan Javascript, beserta anak, cucu, dan cicit-nya',
 	themeColor: '#ffffff',
 	keywords: ['nextjs', 'ssg'],
