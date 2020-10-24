@@ -1,3 +1,5 @@
 module.exports = {
-  siteUrl: "YOUR_SITE_URL_HERE",
+  siteUrl: "https://example.com",
+  generateRobotsTxt: true,
+  exclude: ["/404"],
 };
