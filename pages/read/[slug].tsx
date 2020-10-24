@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react';
-import { getAllPosts, getPost, getPostContent } from '../../utils/blog';
-import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
-import moment from 'moment';
-import { DiscussionEmbed } from 'disqus-react';
-import config from '../../config';
-import Head from '../../comps/Head';
-import Prism from 'prismjs';
+import { useEffect } from "react";
+import { getAllPosts, getPost, getPostContent } from "../../utils/blog";
+import { NextPage, GetStaticPaths, GetStaticProps } from "next";
+import moment from "moment";
+import { DiscussionEmbed } from "disqus-react";
+import config from "../../config";
+import Head from "../../comps/Head";
+import Prism from "prismjs";
 import "prismjs/components/prism-jsx.min";
 import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 
@@ -16,16 +16,25 @@ const ReadArticle: NextPage<{ post }> = ({ post }) => {
 
   return (
     <>
-      <Head title={`${post.title} — ${config.title}`} description={post.description} canonical={config.url + post.slug} image={post.image} type="article" />
+      <Head
+        title={`${post.title} — ${config.title}`}
+        description={post.description}
+        canonical={config.url + post.slug}
+        image={post.image}
+        type="article"
+      />
       <section>
         <h1 className="text-center text-2xl font-bold">{post.title}</h1>
         <p className="mt-4 font-bold text-indigo-800 text-lg text-center">
           {moment(post.date).fromNow()}
         </p>
         <hr className="border border-gray-300 my-6" />
-        <div className="mt-4 post-content" dangerouslySetInnerHTML={{
-          __html: post.content
-        }}></div>
+        <div
+          className="mt-4 post-content"
+          dangerouslySetInnerHTML={{
+            __html: post.content,
+          }}
+        ></div>
         <div className="mt-6">
           <DiscussionEmbed
             shortname={config.disqusShortname}
@@ -38,35 +47,32 @@ const ReadArticle: NextPage<{ post }> = ({ post }) => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts([
-    'slug',
-    'draft'
-  ]);
+  const posts = getAllPosts(["slug", "draft"]);
 
   return {
-    paths: posts.map(post => {
+    paths: posts.map((post) => {
       return {
         params: {
           slug: post.slug,
         },
-      }
+      };
     }),
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = getPost(params.slug.toString(), [
-    'title',
-    'date',
-    'draft',
-    'description',
-    'image',
-    'content'
+    "title",
+    "date",
+    "draft",
+    "description",
+    "image",
+    "content",
   ]);
 
   const content = getPostContent(post.content);
@@ -75,10 +81,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       post: {
         ...post,
-        content
-      }
-    }
-  }
-}
+        content,
+      },
+    },
+  };
+};
 
 export default ReadArticle;
