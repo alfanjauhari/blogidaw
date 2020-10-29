@@ -1,6 +1,6 @@
 {
   "name": "blogidaw",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simple SSG(Static Site Generator) using TNT(Typescript, Next JS, Tailwind CSS) Stack",
   "main": "index.js",
   "scripts": {
