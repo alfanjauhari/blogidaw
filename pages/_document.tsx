@@ -1,15 +1,9 @@
-import { ComponentClass } from "react";
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from "next/document";
+import React, { ComponentClass } from 'react';
+import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
 
 class MyDocument extends Document<ComponentClass> {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
+    const initialProps: DocumentInitialProps = await Document.getInitialProps(ctx);
 
     return { ...initialProps };
   }
